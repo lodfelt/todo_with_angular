@@ -1,0 +1,17 @@
+<div ng-controller="TodoCtrl">
+  <h1>Todo List</h1>
+  <form id="add-todo-item" ng-submit="addTodo()">
+    <input type="hidden" name="todo_item[done]" value="false">
+    <input type="text" name="todo_item[title]" ng-model="formTodoText" ng-model-instant>
+    <button type="submit">Add</button>
+  </form>
+  <ul id="todo-list">
+    <li ng-repeat="todo in todos">
+    	<form class="delete-todo-item">
+    	  <input type="checkbox" ng-model="todo.done">
+    	</form>
+    	<span class="done-{{todo.done}}">{{todo.title}}</span>
+    </li>
+  </ul>
+  <button ng-click="clearCompleted()">Clear completed</button>
+</div>
